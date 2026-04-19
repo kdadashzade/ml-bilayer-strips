@@ -15,7 +15,7 @@ import os
 
 # CONFIGURATION
 # =======================================================
-TOTAL_RUNS = 5
+TOTAL_RUNS = 10
 CSV_FILENAME = 'Bimetal_TestRun.csv'
 MODEL_NAME_PREFIX = 'Model_PLA_TPU_'
 
@@ -175,8 +175,8 @@ if __name__ == '__main__':
             
             # Randomize variables
             p_len = random.uniform(100.0, 200.0)
-            p_t_tpu = 1
-            p_t_pla = 1
+            p_t_tpu = 2.5
+            p_t_pla = 2.5
 
             ratio = p_t_pla / (p_t_tpu + p_t_pla)
 
