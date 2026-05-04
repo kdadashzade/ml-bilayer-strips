@@ -16,11 +16,11 @@ from sklearn.model_selection import cross_validate
 
 #################
 
-df = pd.read_csv('Bimetal_TestRun1000.csv')
-X = df[['Length_mm', 'TPU_Thick_mm', 'PLA_Thick_mm']]
+df = pd.read_csv(r'/Users/kanandadashzade/Downloads/FYP/data/report/Bimetal_TestRun1000.csv')
+X = df[['Length_mm', 'TPU_Thick_Peak_mm', 'PLA_Thick_Min_mm']]
 y = df[['Deflection_mm']]
 
-df.rename(columns={"Length_mm": "len", "TPU_Thick_mm": "TPU", "PLA_Thick_mm" : "PLA", "Deflection_mm": "U"})
+df.rename(columns={"Length_mm": "len", "TPU_Thick_Peak_mm": "TPU", "PLA_Thick_Min_mm" : "PLA", "Deflection_mm": "U"})
 
 ###############
 

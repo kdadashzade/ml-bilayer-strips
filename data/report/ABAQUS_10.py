@@ -15,7 +15,7 @@ import os
 
 # CONFIGURATION
 # =======================================================
-TOTAL_RUNS = 1000
+TOTAL_RUNS = 10
 CSV_FILENAME = 'Bimetal_TestRun.csv'
 MODEL_NAME_PREFIX = 'Model_PLA_TPU_'
 
@@ -174,13 +174,13 @@ if __name__ == '__main__':
         for i in range(1, TOTAL_RUNS + 1):
             
             # Randomize variables
-            p_len = random.uniform(50.0, 100.0)
+            p_len = random.uniform(100.0, 200.0)
             p_t_tpu = 2.5
             p_t_pla = 2.5
 
             ratio = p_t_pla / (p_t_tpu + p_t_pla)
 
-            p_temp = 60.0
+            p_temp = random.uniform(50.0, 60.0)
 
             print("--- Run {}/{} ---".format(i, TOTAL_RUNS))
             print("Params: L={:.1f}mm, TPU_Peak={:.2f}mm, PLA_Min={:.2f}mm".format(p_len, p_t_tpu, p_t_pla))
