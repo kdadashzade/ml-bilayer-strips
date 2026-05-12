@@ -14,7 +14,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.model_selection import cross_validate
 
 
-#################
+
 
 df = pd.read_csv('Bimetal_TestRun1000.csv')
 X = df[['Length_mm', 'TPU_Thick_mm', 'PLA_Thick_mm']]
@@ -22,7 +22,7 @@ y = df[['Deflection_mm']]
 
 df.rename(columns={"Length_mm": "len", "TPU_Thick_mm": "TPU", "PLA_Thick_mm" : "PLA", "Deflection_mm": "U"})
 
-###############
+
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, random_state = 42)
 
@@ -36,7 +36,7 @@ X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
 
-#################
+
 poly = PolynomialFeatures(degree=6, include_bias=False)
 
 X_train_poly = poly.fit_transform(X_train_scaled)
@@ -50,7 +50,7 @@ print("Feature Names:", poly.get_feature_names_out(['L', 'T', 'P']))
 model = LinearRegression()
 model.fit(X_train_poly, y_train)
 
-#############
+
 intercept_val = np.ravel(model.intercept_)[0]
 print(f"\nModel Intercept (Baseline Deflection): {intercept_val:.4f}")
 
@@ -83,7 +83,6 @@ cv_results = cross_validate(
     return_train_score=True
 )
 
-# Extract and convert the negative MSE to RMSE
 train_rmse_scores = np.sqrt(-cv_results['train_score'])
 test_rmse_scores = np.sqrt(-cv_results['test_score'])
 

@@ -1,13 +1,19 @@
-# Python virtual environment
+# Virtual environment
 .venv/
 venv/
-ENV/
 
-# Mac system files
+# IDE / editor settings
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# macOS
 .DS_Store
 
-# Python cache
-__pycache__/
-*.py[cod]
-*$py.class
-
+# Jupyter
+.ipynb_checkpoints/
